@@ -1,0 +1,129 @@
+*{
+ margin : 0; 
+ padding : 0; 
+ box-sizing : border-box; 
+}
+
+@font-face {
+    font-family: igfont;
+    src: url(./Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf);
+}
+
+html, body{
+ height : 100%;
+ width : 100%;
+}
+
+body{
+ font-family : 'Roboto', sans-serif; 
+ background-color : #bba1a7; 
+ display: flex;
+ justify-content: center;
+ align-items: center;    
+}
+
+#card{
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    /* padding: 10px; */
+}
+
+.head{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #f193fb83, #f5576c8f);
+}
+
+.head h3{
+    font-family: igfont;
+    letter-spacing: 1.5px;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ri-add-line{
+    border: 1.5px solid black;
+    border-radius: 5px;
+}
+
+#stories{
+    width: 100%;
+    border-bottom: 1px solid #555;
+    padding: 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#stories::-webkit-scrollbar{
+   height: 2px; 
+}
+
+.story{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    padding: 3px;
+    margin-right: 5px;
+    /* border: 3px solid rgb(37, 8, 8); */
+    display: inline-block;
+    overflow: hidden;
+}
+
+.story img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.story p{
+    text-align: center;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.full{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    display: none;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+#progress{
+    width: 100%;
+    height: 5px;
+    border-radius: 50px;
+    background-color: rgba(245, 245, 245, 0.951);
+}
+
+#growth{
+    width: 0%;
+    height: 100%;
+    background-color: rgba(7, 7, 7, 0.782);
+    border-radius: 50px;
+}
+
+.full h2{
+    font-size: 16px;
+    margin-top: 5px;
+    color: white;
+    font-weight: 500;
+}

@@ -1,0 +1,72 @@
+*{
+ margin : 0; 
+ padding : 0; 
+ box-sizing : border-box; 
+}
+
+html, body{
+ height : 100%;
+ width : 100%;
+}
+
+body{
+    display : flex; 
+    justify-content : center; 
+    align-items : center; 
+    background-image: url(https://assets.bcci.tv/watermarkoutput/bcci/photos/1456/f0763ba2-754b-4793-8fe0-f246592485fc.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.winCard{
+ width: 50%;
+ height: 90%;
+ background-color : #ffffff30;
+ border-radius: 10px;
+ padding: 10px; 
+ text-align: center;
+ color : white; 
+ display:flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+
+.winCard h4{
+ font-family: gilroy;
+ font-size : 2em; 
+}
+
+.winCard h2{
+ font-family: sans-serif;
+ padding-bottom: 10px;
+ font-size : 3em; 
+}
+
+.winCard img{
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.winCard button{
+    padding: 15px;
+    font-size: 20px;
+    background-color: #246db3;
+    color: #f0f1f3;
+    border: none;
+    border-radius: 5px;
+    font-family: sans-serif;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all ease-in 0.3s;
+}
+
+.winCard button:active{
+    background-color: #f0f1f3;
+    color: #246db3;
+    scale: 0.9;
+}

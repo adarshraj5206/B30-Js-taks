@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* cursor: none; */
+}
+
+#cursor {
+    width: 20px;
+    height:20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    transition: all linear 0.1s;
+}
+
+h1 {
+    font-size: 80px;
+    position: relative;
+    z-index: 99;
+    mix-blend-mode: difference;
+}
