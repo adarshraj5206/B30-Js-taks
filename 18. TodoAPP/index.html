@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #7f878d;
+      }
+
+      .todoApp {
+        width: 90%;
+        max-width: 500px;
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #2196f3;
+      }
+
+      #inputTask {
+        width: 75%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+        background-color: #f9f9f9;
+      }
+
+      .completed {
+        text-decoration: line-through;
+        color: #888;
+      }
+
+      button {
+        text-decoration: none;
+      }
+
+      #addTask {
+        width: 20%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        background-color: #2196f3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #addTask:hover {
+        background-color: #1976d2;
+      }
+
+      #todoList {
+        list-style: none;
+        margin-top: 2rem;
+      }
+
+      #todoList li {
+        padding: 1rem;
+        background-color: #f1f8e9;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        border: 1px solid #ddd;
+      }
+
+      #todoList li span {
+        flex: 1; 
+        max-width: 70%; 
+        white-space: normal; 
+      }
+
+      #todoList li:hover {
+        background-color: #dcedc8;
+      }
+
+      .edit-btn,
+      .delete-btn {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .edit-btn {
+        background-color: #ffc107;
+        color: white;
+        margin-right: 0.5rem;
+      }
+
+      .edit-btn:hover {
+        background-color: #e0a800;
+      }
+
+      .delete-btn {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      .delete-btn:hover {
+        background-color: #c82333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todoApp">
+      <h1>Todo App</h1>
+      <input type="text" placeholder="Enter task" id="inputTask" />
+      <button id="addTask">Add</button>
+      <br />
+      <ul id="todoList"></ul>
+    </div>
+    <script>
+      let isEditing = false;
+      let currentEditingItem = null;
+
+      function addTodo() {
+        const input = document.querySelector("#inputTask");
+        const text = input.value.trim();
+
+        if (text) {
+          if (isEditing) {
+            // Save the edited task
+            currentEditingItem.querySelector("span").textContent = text;
+            isEditing = false;
+            currentEditingItem = null;
+            input.value = "";
+            document.querySelector("#addTask").textContent = "Add";
+          } else {
+            // Add a new task
+            const unorderedList = document.querySelector("#todoList");
+            const listItem = document.createElement("li");
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.onclick = function () {
+              span.classList.toggle("completed");
+            };
+
+            const span = document.createElement("span");
+            span.textContent = text;
+
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.classList.add("edit-btn");
+            editButton.onclick = function () {
+              // Enter edit mode
+              isEditing = true;
+              currentEditingItem = listItem;
+              input.value = span.textContent;
+              document.querySelector("#addTask").textContent = "Save";
+            };
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.classList.add("delete-btn");
+            deleteButton.onclick = function () {
+              this.parentElement.remove();
+            };
+
+            listItem.appendChild(checkbox);
+            listItem.appendChild(span);
+            listItem.appendChild(editButton);
+            listItem.appendChild(deleteButton);
+
+            unorderedList.appendChild(listItem);
+            input.value = "";
+          }
+        }
+      }
+
+      const addBtn = document.querySelector("#addTask");
+      addBtn.addEventListener("click", addTodo);
+    </script>
+  </body>
+</html>
